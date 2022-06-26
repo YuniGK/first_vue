@@ -9,8 +9,10 @@
     <p v-for="(v, i) in products" :key="i">
       {{v}}
 
-      <button :class="[i+'_btn']" :click="s">click</button>
-      <span>count : <span :class="[i+'_count']"></span></span>
+      <button :class="[i+'_btn']" @click="count1++">click</button>
+      <button :class="[i+'_btn']" @click="increase">click</button>
+      
+      <span>count : <span :class="[i+'_count']">{{count1}}</span></span>
     </p>
 
   </div>
@@ -18,7 +20,7 @@
 
 <script>
 let val = [];
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 5; i++) {
   val[i] = i+1;
 }
 
@@ -28,11 +30,20 @@ export default {
   data(){
     //데이터 보관함
     return {
+      count1 : 0,
       menus : ['Home', 'Shop', 'About'],
       //products : [1,2,3,4,5]
       products : val
     }
   },
+
+  methods : {
+    increase(){
+      //data의 내용을 사용하기 위해서는 this를 사용해서 불러온다.
+      this.count1 += 1;
+    }
+  },
+
 }
 </script>
 
