@@ -9,7 +9,7 @@
     <p v-for="(v, i) in products" :key="i">
       {{v}}
 
-      <button :class="[i+'_btn']">click</button>
+      <button :class="[i+'_btn']" :click="s">click</button>
       <span>count : <span :class="[i+'_count']"></span></span>
     </p>
 
