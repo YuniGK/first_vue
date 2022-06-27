@@ -6,14 +6,18 @@
       <li v-for="(n, i) in menus" :key="i"><a href="#">{{i}}___{{n}}</a></li>
     </ul>
 
-    <p v-for="(v, i) in products" :key="i">
-      {{v}}
-
-      <button :class="[i+'_btn']" @click="count1++">click</button>
-      <button :class="[i+'_btn']" @click="increase">click</button>
+    <div class="content" v-for="(v, i) in products" :key="i">
+      <img :src="require(`@/assets/${i+1}.jpg`)" alt="img">
       
-      <span>count : <span :class="[i+'_count']">{{count1}}</span></span>
-    </p>
+      <div class="content-box">
+        <h3>{{v}}</h3>
+
+        <button :class="[i+'_btn']" @click="count1++">click</button>
+        <button :class="[i+'_btn']" @click="increase">click</button>
+        
+        <span>count : <span :class="[i+'_count']">{{count1}}</span></span>
+      </div>
+    </div>
 
   </div>
 </template>
@@ -51,4 +55,7 @@ export default {
   ul {display: flex;}
   li {flex-direction: row; flex-wrap: wrap; justify-self: center;
   justify-content: center; align-items: center; width: 33.3%; text-align: center;} 
+
+  .content {width: 33.3%; float: left;}
+  .content img{width: 100%;}
 </style>
